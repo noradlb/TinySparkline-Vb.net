@@ -49,11 +49,11 @@ Download the complete project files:
 - `TinySparkline.vb` - The control
 - `MainForm.Designer.vb` - Form designer code
 - `MainForm.vb` - Form logic
-- `Program.vb` - Application entry point
 
 ## 💻 Usage Example
 
 ### Basic Usage
+
 ```vbnet
 ' Create and add sparkline
 Dim sparkline As New TinySparkline()
@@ -66,3 +66,35 @@ sparkline.AddValue(10)
 sparkline.AddValue(12)
 sparkline.AddValue(8)
 sparkline.AddValue(15)
+```
+
+## 🎨 Customization Examples
+
+### Change Colors
+
+```vbnet
+sparkline.LineColor = Color.Blue
+sparkline.LineColorDown = Color.Orange
+sparkline.FillColor = Color.FromArgb(50, 0, 0, 255)
+```
+
+## ⚡ Quick Start Code
+
+```vbnet
+' Create a sparkline with default settings
+Dim spark As New TinySparkline()
+spark.Size = New Size(120, 35)
+spark.Location = New Point(10, 10)
+Me.Controls.Add(spark)
+
+' Add data
+spark.AddRange(New Integer() {5, 7, 4, 8, 6, 9, 3, 10, 8, 12})
+
+' Update with new value (auto-removes oldest)
+spark.AddValue(11)
+
+' Check trend
+If spark.Change > 0 Then
+    Console.WriteLine("Trending Up!")
+End If
+```
